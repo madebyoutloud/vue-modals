@@ -1,4 +1,4 @@
-import { addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
@@ -13,6 +13,13 @@ export default defineNuxtModule({
 
     nuxt.hook('prepare:types', ({ references }) => {
       references.push({ types: '@outloud/nuxt-modals' })
+    })
+
+    addTemplate({
+      filename: 'modals-options.mjs',
+      getContents() {
+        return `export const modalsOptions = ${JSON.stringify(options, null, 2)}`
+      },
     })
 
     // Add runtime plugin before the router plugin
