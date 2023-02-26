@@ -25,4 +25,5 @@ docs:
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       changes:
-        - "docs/**/*"
+        - docs/**/*
+        - .gitlab/docs.yml

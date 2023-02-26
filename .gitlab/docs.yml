@@ -32,8 +32,9 @@ deploy_docs:
   stage: deploy
   dependencies:
     - build_docs
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   resource_group: deploy_docs
+  before_script:
+    - apk add --no-cache aws-cli
   script:
     - aws s3 cp $ARTIFACT_NAME s3://${AWS_S3_BUCKET}/${ARTIFACT_NAME}
     - aws amplify start-deployment --app-id $AWS_AMPLIFY_ID --branch-name $AWS_AMPLIFY_ENV --source-url s3://${AWS_S3_BUCKET}/${ARTIFACT_NAME}
