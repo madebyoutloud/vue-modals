@@ -1,0 +1,34 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "types": [
+      "vite/client",
+      "vitest",
+      "unplugin-vue-define-options/macros-global",
+    ],
+    "paths": {
+      "~/*": [
+        "src/*"
+      ],
+      "~": [
+        "src"
+      ]
+    }
+  },
+  "vueCompilerOptions": {
+    "plugins": [
+      "@vue-macros/volar/define-model",
+      "@vue-macros/volar/short-vmodel",
+      "@vue-macros/volar/define-slots"
+    ],
+    "shortVmodel": {
+      "prefix": "$"
+    }
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

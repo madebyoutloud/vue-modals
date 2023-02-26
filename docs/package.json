@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview"
+  },
+  "devDependencies": {
+    "@nuxt-themes/docus": "^1.8.3",
+    "nuxt": "^3.2.2",
+    "vite-svg-loader": "^4.0.0"
+  },
+  "dependencies": {
+    "@outloud/nuxt-modals": "workspace:1.0.0",
+    "@outloud/vue-modals": "workspace:1.0.0"
+  }
+}

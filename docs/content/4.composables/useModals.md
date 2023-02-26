@@ -1,0 +1,3 @@
+# useModals
+
+Returns `VueModalsApi`

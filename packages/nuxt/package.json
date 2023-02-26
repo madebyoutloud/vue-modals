@@ -1,0 +1,36 @@
+{
+  "name": "@outloud/nuxt-modals",
+  "private": false,
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "release": "pnpm prepack && release-it"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.1.0",
+    "@outloud/vue-modals": "^1.0.0"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.1.0",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "nuxt": "^3.1.0",
+    "release-it": "^15.6.0"
+  }
+}
