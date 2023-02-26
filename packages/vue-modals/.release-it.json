@@ -3,7 +3,11 @@
     "release": true
   },
   "git": {
+    "tagName": "vue-modals@${version}",
     "requireCleanWorkingDir": false
+  },
+  "npm": {
+    "publish": false
   },
   "plugins": {
     "@release-it/conventional-changelog": {
