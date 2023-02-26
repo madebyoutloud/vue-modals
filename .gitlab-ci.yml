@@ -1,6 +1,14 @@
 stages:
   - triggers
 
+library:
+  stage: triggers
+  trigger:
+    include: .gitlab/library.yml
+    strategy: depend
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^vue-modals\@.*$/
+
 nuxt:
   stage: triggers
   trigger:
@@ -9,10 +17,12 @@ nuxt:
   rules:
     - if: $CI_COMMIT_TAG =~ /^nuxt-modals\@.*$/
 
-library:
+docs:
   stage: triggers
   trigger:
-    include: .gitlab/library.yml
+    include: .gitlab/docs.yml
     strategy: depend
   rules:
-    - if: $CI_COMMIT_TAG =~ /^vue-modals\@.*$/
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      changes:
+        - "docs/**/*"

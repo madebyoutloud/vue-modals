@@ -5,10 +5,10 @@ workflow:
 stages:
   - publish
 
-publish_library:
+publish_nuxt:
   stage: publish
   image: node:18-alpine
-  resource_group: publish_library
+  resource_group: publish_nuxt
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest --activate

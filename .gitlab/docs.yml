@@ -1,0 +1,39 @@
+workflow:
+  rules:
+    - when: always
+
+variables:
+  ARTIFACT_NAME: ${CI_PROJECT_PATH_SLUG}-docs-${CI_COMMIT_SHORT_SHA}.zip
+
+stages:
+  - build
+  - deploy
+
+build_docs:
+  stage: build
+  image: node:18-alpine
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@latest --activate
+    - pnpm config set store-dir .pnpm-store
+    - apk add --no-cache zip
+  script:
+    - cd docs
+    - pnpm i --reporter=silent
+    - pnpm run --reporter=silent generate
+    - cd .output/public
+    - zip -r $ARTIFACT_NAME ./*
+    - mv $ARTIFACT_NAME ../../../
+  artifacts:
+    paths:
+      - $ARTIFACT_NAME
+
+deploy_docs:
+  stage: deploy
+  dependencies:
+    - build_docs
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  resource_group: deploy_docs
+  script:
+    - aws s3 cp $ARTIFACT_NAME s3://${AWS_S3_BUCKET}/${ARTIFACT_NAME}
+    - aws amplify start-deployment --app-id $AWS_AMPLIFY_ID --branch-name $AWS_AMPLIFY_ENV --source-url s3://${AWS_S3_BUCKET}/${ARTIFACT_NAME}
