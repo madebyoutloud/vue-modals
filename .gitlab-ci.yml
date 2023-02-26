@@ -1,6 +1,14 @@
 stages:
   - triggers
 
+nuxt:
+  stage: triggers
+  trigger:
+    include: .gitlab/nuxt.yml
+    strategy: depend
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^nuxt-modals\@.*$/
+
 library:
   stage: triggers
   trigger:
