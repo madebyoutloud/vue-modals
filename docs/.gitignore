@@ -10,6 +10,3 @@ dist
 sw.*
 .env
 .output
-
-.nuxt-storybook
-storybook-static
