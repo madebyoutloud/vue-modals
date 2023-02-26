@@ -1,0 +1,23 @@
+workflow:
+  rules:
+    - when: always
+
+stages:
+  - publish
+
+publish_library:
+  stage: publish
+  image: node:18-alpine
+  only:
+    - tags
+  resource_group: publish_library
+  script:
+    - printenv
+    - corepack enable && corepack prepare pnpm@latest --activate
+    - cd packages/vue-modals
+    - pnpm i
+    - pnpm run build
+    - echo "@outloud:registry=${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - echo ".npmrc" > .npmignore
+    - npm publish
