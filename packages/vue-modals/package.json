@@ -2,7 +2,7 @@
   "name": "@outloud/vue-modals",
   "description": "Modal library for vue 3.",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.4",
   "source": "src/index.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",

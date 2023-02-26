@@ -1,6 +1,7 @@
 {
   "gitlab": {
-    "release": true
+    "release": true,
+    "releaseName": "vue-modals ${version}"
   },
   "git": {
     "tagName": "vue-modals@${version}",
