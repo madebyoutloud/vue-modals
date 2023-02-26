@@ -1,5 +1,12 @@
 
 
+## [1.0.5](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.2...vue-modals@1.0.5) (2023-02-26)
+
+
+### Features
+
+* add CI ([1d0aaec](https://git.outloud.dev/outloud/libraries/vue-modals/commits/1d0aaec01f99a5fbf3885d4b4b5e448a4e1dd8e8))
+
 ## [1.0.4](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.3...vue-modals@1.0.4) (2023-02-26)
 
 
