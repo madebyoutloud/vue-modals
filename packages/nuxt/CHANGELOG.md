@@ -1,5 +1,13 @@
 
 
+## [1.0.4](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.2...nuxt-modals@1.0.4) (2023-03-02)
+
+
+### Bug Fixes
+
+* symbols ([4636907](https://git.outloud.dev/outloud/libraries/vue-modals/commits/46369078c65b81923c5e289373b89ae9e5f4af30))
+* symbols ([fe80ea9](https://git.outloud.dev/outloud/libraries/vue-modals/commits/fe80ea9087f179bdec465d81d10b3e61fad61fa7))
+
 ## [1.0.2](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.1...nuxt-modals@1.0.2) (2023-03-02)
 
 
