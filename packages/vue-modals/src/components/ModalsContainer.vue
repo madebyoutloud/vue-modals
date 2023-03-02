@@ -1,8 +1,25 @@
 <script lang="ts" setup>
+import { onKeyStroke } from '@vueuse/core'
 import { useModals } from '../composables/useModals'
 import ModalWrapper from './ModalWrapper.vue'
 
 const modals = useModals()
+
+const onEsc = (e: KeyboardEvent) => {
+  const el = e.target as HTMLElement
+  const isInput = ['INPUT', 'TEXTAREA'].includes(el.tagName) || el.isContentEditable
+
+  if (isInput) {
+    return
+  }
+
+  const current = modals.list[modals.list.length - 1]
+  if (current && current.options.escToClose) {
+    modals.close(current)
+  }
+}
+
+onKeyStroke('Escape', onEsc)
 </script>
 
 <template>

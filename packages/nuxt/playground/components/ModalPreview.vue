@@ -2,7 +2,11 @@
 const modals = useModals()
 
 const openModal = () => {
-  modals.open()
+  modals.open(import('./Modal.vue'), {
+    props: {
+      title: 'Hello World',
+    },
+  })
 }
 </script>
 

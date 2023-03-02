@@ -18,12 +18,6 @@ const modalRef = toRef(props, 'modal')
 
 provide(modalSymbol, modalRef)
 
-const onEsc = () => {
-  if (props.modal.options.escToClose) {
-    emit('close')
-  }
-}
-
 const onClickOutside = () => {
   if (props.modal.options.clickToClose) {
     emit('close')
@@ -32,7 +26,7 @@ const onClickOutside = () => {
 </script>
 
 <template>
-  <div class="o-modal-wrapper" :class="{ 'is--active': active }" @keydown.esc="onEsc" @click.self="onClickOutside">
+  <div class="o-modal-wrapper" :class="{ 'is--active': active }" @click.self="onClickOutside">
     <transition name="o-modal" mode="out-in">
       <component
         :is="modal.component"
