@@ -1,5 +1,12 @@
 
 
+## [1.0.8](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.7...vue-modals@1.0.8) (2023-03-02)
+
+
+### Bug Fixes
+
+* symbols ([fe80ea9](https://git.outloud.dev/outloud/libraries/vue-modals/commits/fe80ea9087f179bdec465d81d10b3e61fad61fa7))
+
 ## [1.0.7](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.6...vue-modals@1.0.7) (2023-03-02)
 
 
