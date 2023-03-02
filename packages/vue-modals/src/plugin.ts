@@ -6,19 +6,23 @@ import { config } from './config'
 import { apiSymbol } from './symbols'
 
 export const createModals = (options: Partial<ModalsConfig> = {}) => {
-  const api = new Modals(Object.assign({}, config, options)) as Modals & { install: (app: App) => void }
-  const modals = markRaw(api)
+  const api = markRaw(new Modals(Object.assign({}, config, options)))
 
-  api.install = (app: App) => {
+  const install = (app: App) => {
     if (app.config.globalProperties.$modals) {
       warn(`${NAME}: already installed`)
       return
     }
 
-    app.config.globalProperties.$modals = modals
+    app.config.globalProperties.$modals = api
 
-    app.provide(apiSymbol, modals)
+    app.provide(apiSymbol, api)
   }
 
-  return modals
+  const plugin = {
+    api,
+    install,
+  }
+
+  return plugin
 }

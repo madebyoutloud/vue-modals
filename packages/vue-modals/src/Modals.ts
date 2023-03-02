@@ -4,17 +4,36 @@ import Modal from './Modal'
 import type { ModalData, ModalId, ModalProps } from './Modal'
 import type { ModalsConfig } from './config'
 
-export type ModalOpenOptions = Partial<ModalData> & {
+export type ModalsOpenOptions = Partial<ModalData> & {
   fetchData?: () => Promise<ModalProps | void>
 }
+
+export type ModalsConfirmProps = {
+  text: string
+}
+
+type ModalsComponentImport = () => any
 
 export default class Modals {
   private modalId = 1
   public list = reactive<Raw<Modal>[]>([])
+  private components: Record<string, ModalsComponentImport> = {}
 
   constructor(public options: ModalsConfig) {}
 
-  private load(modal: Modal, component: any, options: ModalOpenOptions) {
+  public getComponent(name: string) {
+    if (!this.components[name]) {
+      throw new Error(`Component "${name}" not found`)
+    }
+
+    return this.components[name]
+  }
+
+  public setComponent(name: string, component: ModalsComponentImport) {
+    this.components[name] = component
+  }
+
+  private load(modal: Modal, component: any, options: ModalsOpenOptions) {
     const promises: Promise<any>[] = []
 
     if (component instanceof Promise) {
@@ -60,7 +79,7 @@ export default class Modals {
     return this.list.some(item => item.id === modalOrId || item === modalOrId)
   }
 
-  open<T = any>(component: any, options: ModalOpenOptions = {}) {
+  open<T = any>(component: any, options: ModalsOpenOptions = {}) {
     const mergedOptions = Object.assign({
       id: this.modalId++,
       props: {},
@@ -107,9 +126,13 @@ export default class Modals {
     modal.status = 'closed'
     this.list.splice(this.list.indexOf(modal), 1)
 
-    // console.log('got', this.list.value)
-
     return true
+  }
+
+  confirm(props: ModalsConfirmProps) {
+    return this.open(this.getComponent('confirm'), {
+      props,
+    })
   }
 
   extend(name: string, def: any) {

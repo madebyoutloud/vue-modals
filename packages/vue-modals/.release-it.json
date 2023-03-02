@@ -5,6 +5,8 @@
   },
   "git": {
     "tagName": "vue-modals@${version}",
+    "commitMessage": "vue-modals@${version}",
+    "tagAnnotation": "vue-modals@${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {

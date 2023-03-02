@@ -1,6 +1,6 @@
 import { inject } from 'vue'
+import { modalSymbol } from '../symbols'
 import { useModals } from './useModals'
-import { modalSymbol } from '~/symbols'
 
 export const useModal = <T = unknown>() => {
   const modals = useModals()

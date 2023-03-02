@@ -1,6 +1,7 @@
 import { inject } from 'vue'
-import { apiSymbol } from '~/symbols'
+import type { Modals } from '../Modals'
+import { apiSymbol } from '../symbols'
 
-export const useModals = () => {
+export const useModals = (): Modals => {
   return inject(apiSymbol)!
 }
