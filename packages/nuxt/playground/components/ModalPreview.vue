@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const openModal = () => {
+const modals = useModals()
 
+const openModal = () => {
+  modals.open()
 }
 </script>
 
