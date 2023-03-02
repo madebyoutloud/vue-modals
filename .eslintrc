@@ -3,7 +3,8 @@
   "rules": {
     "vue/multi-word-component-names": "off",
     "@typescript-eslint/consistent-type-definitions": ["off"],
-    "curly": ["error", "all"]
+    "curly": ["error", "all"],
+    "symbol-description": "off"
   },
   "ignorePatterns": ["**/*.md"]
 }

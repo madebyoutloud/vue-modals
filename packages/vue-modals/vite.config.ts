@@ -31,7 +31,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name,
-      fileName: format => `${name}.${format}.js`,
+      fileName: format => `${name}.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
     rollupOptions: {
       external: [
@@ -52,7 +52,7 @@ export default defineConfig({
     },
   },
   define: {
-    DEV: JSON.stringify(!process.env.prod),
+    DEV: JSON.stringify(process.env.NODE_ENV === 'development'),
     NAME: JSON.stringify(packageJson.name),
     VERSION: JSON.stringify(packageJson.version),
   },

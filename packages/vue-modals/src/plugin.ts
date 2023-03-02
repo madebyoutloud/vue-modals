@@ -3,7 +3,7 @@ import { markRaw, warn } from 'vue'
 import Modals from './Modals'
 import type { ModalsConfig } from './config'
 import { config } from './config'
-import { apiSymbol } from './symbols'
+import { modalsSymbol } from './symbols'
 
 export const createModals = (options: Partial<ModalsConfig> = {}) => {
   const api = markRaw(new Modals(Object.assign({}, config, options)))
@@ -16,7 +16,7 @@ export const createModals = (options: Partial<ModalsConfig> = {}) => {
 
     app.config.globalProperties.$modals = api
 
-    app.provide(apiSymbol, api)
+    app.provide(modalsSymbol, api)
   }
 
   const plugin = {

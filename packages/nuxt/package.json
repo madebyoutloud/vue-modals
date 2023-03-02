@@ -1,7 +1,7 @@
 {
   "name": "@outloud/nuxt-modals",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.3",
-    "@outloud/vue-modals": "^1.0.7"
+    "@outloud/vue-modals": "^1.0.8"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
