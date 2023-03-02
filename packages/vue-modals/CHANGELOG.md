@@ -1,5 +1,14 @@
 
 
+## [1.0.6](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.5...vue-modals@1.0.6) (2023-03-02)
+
+
+### Features
+
+* add CI for nuxt package ([f40894f](https://git.outloud.dev/outloud/libraries/vue-modals/commits/f40894fe271d5084734a7b4f786059c9347e9597))
+* add confirm method ([db46afd](https://git.outloud.dev/outloud/libraries/vue-modals/commits/db46afd83f9d6b830704b2b295bdd33e7e9b89d1))
+* add docs CI ([3f85301](https://git.outloud.dev/outloud/libraries/vue-modals/commits/3f85301bf56962e4604634a54312ac0b507fd43c))
+
 ## [1.0.5](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.2...vue-modals@1.0.5) (2023-02-26)
 
 
