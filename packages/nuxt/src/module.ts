@@ -10,8 +10,11 @@ export default defineNuxtModule({
 
     // Transpile runtime
     nuxt.options.build.transpile.push(resolver.resolve('./runtime'))
-    // nuxt has issue with resolving esm/cjs modules
-    nuxt.options.build.transpile.push('@outloud/vue-modals')
+
+    // https://github.com/nuxt/framework/pull/8544
+    nuxt.options.vite.optimizeDeps = nuxt.options.vite.optimizeDeps || {}
+    nuxt.options.vite.optimizeDeps.include = nuxt.options.vite.optimizeDeps.include || []
+    nuxt.options.vite.optimizeDeps.include.push('@outloud/vue-modals')
 
     nuxt.hook('prepare:types', ({ references }) => {
       references.push({ types: '@outloud/nuxt-modals' })
