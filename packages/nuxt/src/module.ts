@@ -1,4 +1,4 @@
-import { addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addImports, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
@@ -29,5 +29,11 @@ export default defineNuxtModule({
     })
 
     nuxt.options.css.push('@outloud/vue-modals/style.css')
+
+    const composables = ['useModals', 'useModal']
+    composables.map(name => addImports({
+      name,
+      from: '@outloud/vue-modals',
+    }))
   },
 })

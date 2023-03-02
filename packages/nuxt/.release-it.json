@@ -5,6 +5,8 @@
   },
   "git": {
     "tagName": "nuxt-modals@${version}",
+    "commitMessage": "nuxt-modals@${version}",
+    "tagAnnotation": "nuxt-modals@${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {

@@ -6,6 +6,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     }
@@ -23,15 +24,17 @@
     "release": "pnpm prepack && release-it"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.1.0",
+    "@nuxt/kit": "^3.2.3",
     "@outloud/vue-modals": "^1.0.5"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^5.1.1",
     "@nuxt/module-builder": "^0.2.1",
-    "@nuxt/schema": "^3.1.0",
+    "@nuxt/schema": "^3.2.3",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "nuxt": "^3.1.0",
-    "release-it": "^15.6.0"
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@nuxt/test-utils": "^3.2.3",
+    "nuxt": "^3.2.3",
+    "release-it": "^15.6.0",
+    "vitest": "^0.29.1"
   }
 }
