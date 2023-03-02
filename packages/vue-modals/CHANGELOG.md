@@ -1,5 +1,12 @@
 
 
+## [1.0.7](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.6...vue-modals@1.0.7) (2023-03-02)
+
+
+### Bug Fixes
+
+* nuxt build ([27c786e](https://git.outloud.dev/outloud/libraries/vue-modals/commits/27c786e61e6268c5e560553a4387983d9d22d2e8))
+
 ## [1.0.6](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.5...vue-modals@1.0.6) (2023-03-02)
 
 
