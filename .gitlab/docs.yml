@@ -19,8 +19,8 @@ build_docs:
     - apk add --no-cache zip
   script:
     - cd docs
-    - pnpm i --reporter=silent
-    - pnpm run --reporter=silent generate
+    - pnpm i --loglevel error
+    - pnpm run generate
     - cd .output/public
     - zip -r $ARTIFACT_NAME ./*
     - mv $ARTIFACT_NAME ../../../
