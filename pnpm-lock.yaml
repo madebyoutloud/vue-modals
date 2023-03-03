@@ -37,12 +37,10 @@ importers:
     specifiers:
       '@nuxt-themes/docus': ^1.9.1
       '@outloud/nuxt-modals': workspace:^1.0.5
-      '@outloud/vue-modals': workspace:^1.0.9
       nuxt: ^3.2.3
       vite-svg-loader: ^4.0.0
     dependencies:
       '@outloud/nuxt-modals': link:../packages/nuxt
-      '@outloud/vue-modals': link:../packages/vue-modals
     devDependencies:
       '@nuxt-themes/docus': 1.9.1_nuxt@3.2.3
       nuxt: 3.2.3

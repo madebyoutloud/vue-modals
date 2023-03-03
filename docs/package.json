@@ -14,7 +14,6 @@
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "@outloud/nuxt-modals": "workspace:^1.0.5",
-    "@outloud/vue-modals": "workspace:^1.0.9"
+    "@outloud/nuxt-modals": "workspace:^1.0.5"
   }
 }
