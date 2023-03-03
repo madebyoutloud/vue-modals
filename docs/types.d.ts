@@ -1,11 +1,10 @@
 import { Modals } from "@outloud/vue-modals";
 
 declare module '@outloud/vue-modals' {
-  export type ConfirmProps = {
+  export interface ModalsConfirmProps {
+
     text: string
   }
-
-  interface Modals {
-    confirm: (props: ConfirmProps) => Promise<boolean | undefined>
-  }
 }
+
+export {}

@@ -1,19 +1,13 @@
 <script lang="ts" setup>
-import type { ConfirmProps } from '@outloud/vue-modals'
 import { OModalsContainer, useModals } from '@outloud/vue-modals'
 
 const modals = useModals()
+modals.setComponent('confirm', () => import('./Confirm.vue'))
 const confirmed = ref<boolean | undefined>(undefined)
-
-modals.extend('confirm', (props: ConfirmProps) => {
-  return modals.open(import('./Confirm.vue'), {
-    props,
-  })
-})
 
 const confirm = async () => {
   const result = await modals.confirm({
-    text: 'Hello World!',
+    text: 'Are sure to delete this item?',
   })
 
   confirmed.value = result

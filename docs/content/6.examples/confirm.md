@@ -1,4 +1,4 @@
-# Confirm modal
+# Confirm
 
 ::code-group
   ::code-block{label="Preview" preview}
@@ -6,24 +6,31 @@
   ::
   
   ```vue [Preview.vue]
-    <script setup lang="ts">
-    import { OModalsContainer, useModal } from '@outloud/vue-modals'
-    
+    <script lang="ts" setup>
+    import { OModalsContainer, useModals } from '@outloud/vue-modals'
+
     const modals = useModals()
+    const confirmed = ref<boolean | undefined>(undefined)
 
-    const confirmed = ref(false)
+    const confirm = async () => {
+      const result = await modals.confirm({
+        text: 'Are sure to delete this item?',
+      })
 
-    const confirm = () => {
-      modals.confirm()
+      confirmed.value = result
     }
     </script>
 
     <template>
-      <Cta @click="confirm">
-        Delete
-      </Cta>
+      <div>
+        Status: {{ JSON.stringify(confirmed) }}
+      </div>
 
-      <ModalsContainer />
+      <button-link @click="confirm">
+        Confirm
+      </button-link>
+
+      <OModalsContainer />
     </template>
   ```
 ::
