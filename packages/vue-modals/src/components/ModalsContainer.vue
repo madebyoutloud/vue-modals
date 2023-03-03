@@ -38,7 +38,7 @@ onKeyStroke('Escape', onEsc)
   </transition>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .o-modals {
   --o-transition-duration: .4s;
   position: fixed;
