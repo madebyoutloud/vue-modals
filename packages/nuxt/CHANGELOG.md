@@ -1,5 +1,14 @@
 
 
+## [1.0.6](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.5...nuxt-modals@1.0.6) (2023-03-03)
+
+
+### Bug Fixes
+
+* ci ([9f19793](https://git.outloud.dev/outloud/libraries/vue-modals/commits/9f197931dbe1a4ce277387928a6464e73ae53c47))
+* getComponent ([94a0bf7](https://git.outloud.dev/outloud/libraries/vue-modals/commits/94a0bf7644397c71c55e84bd47deec564fa82207))
+* scoped style ([d5c7fa2](https://git.outloud.dev/outloud/libraries/vue-modals/commits/d5c7fa22a5cb8541386df8f6e12017944157f79d))
+
 ## [1.0.5](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.4...nuxt-modals@1.0.5) (2023-03-02)
 
 ## [1.0.4](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.2...nuxt-modals@1.0.4) (2023-03-02)
