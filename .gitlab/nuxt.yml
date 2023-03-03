@@ -15,7 +15,7 @@ publish_nuxt:
     - pnpm config set store-dir .pnpm-store
   script:
     - cd packages/nuxt
-    - pnpm i --reporter=silent
+    - pnpm i --loglevel error
     - echo "@outloud:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - pnpm publish
