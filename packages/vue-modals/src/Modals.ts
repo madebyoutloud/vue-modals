@@ -8,9 +8,7 @@ export type ModalsOpenOptions = Partial<ModalData> & {
   fetchData?: () => Promise<ModalProps | void>
 }
 
-export type ModalsConfirmProps = {
-  text: string
-}
+export interface ModalsConfirmProps {}
 
 type ModalsComponentImport = () => any
 
@@ -26,7 +24,7 @@ export default class Modals {
       throw new Error(`Component "${name}" not found`)
     }
 
-    return this.components[name]
+    return this.components[name]()
   }
 
   public setComponent(name: string, component: ModalsComponentImport) {
@@ -129,8 +127,8 @@ export default class Modals {
     return true
   }
 
-  confirm(props: ModalsConfirmProps) {
-    return this.open(this.getComponent('confirm'), {
+  confirm<T = boolean>(props: ModalsConfirmProps) {
+    return this.open<T>(this.getComponent('confirm'), {
       props,
     })
   }
