@@ -1,5 +1,12 @@
 
 
+## [1.0.10](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.9...vue-modals@1.0.10) (2023-03-03)
+
+
+### Bug Fixes
+
+* getComponent ([94a0bf7](https://git.outloud.dev/outloud/libraries/vue-modals/commits/94a0bf7644397c71c55e84bd47deec564fa82207))
+
 ## [1.0.9](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.8...vue-modals@1.0.9) (2023-03-02)
 
 
