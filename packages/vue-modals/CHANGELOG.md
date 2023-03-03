@@ -1,5 +1,12 @@
 
 
+## [1.0.11](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.10...vue-modals@1.0.11) (2023-03-03)
+
+
+### Bug Fixes
+
+* ci ([9f19793](https://git.outloud.dev/outloud/libraries/vue-modals/commits/9f197931dbe1a4ce277387928a6464e73ae53c47))
+
 ## [1.0.10](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.9...vue-modals@1.0.10) (2023-03-03)
 
 
