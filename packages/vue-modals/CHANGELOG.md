@@ -1,5 +1,12 @@
 
 
+## [1.0.12](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.11...vue-modals@1.0.12) (2023-03-03)
+
+
+### Bug Fixes
+
+* scoped style ([d5c7fa2](https://git.outloud.dev/outloud/libraries/vue-modals/commits/d5c7fa22a5cb8541386df8f6e12017944157f79d))
+
 ## [1.0.11](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.10...vue-modals@1.0.11) (2023-03-03)
 
 
