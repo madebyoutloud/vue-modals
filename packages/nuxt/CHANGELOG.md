@@ -1,5 +1,7 @@
 
 
+## [1.0.8](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.7...nuxt-modals@1.0.8) (2023-03-11)
+
 ## [1.0.7](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.6...nuxt-modals@1.0.7) (2023-03-03)
 
 ## [1.0.6](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.5...nuxt-modals@1.0.6) (2023-03-03)
