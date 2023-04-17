@@ -1,5 +1,12 @@
 
 
+## [1.0.18](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.17...vue-modals@1.0.18) (2023-04-17)
+
+
+### Bug Fixes
+
+* pnpm version ([a2c3b9c](https://git.outloud.dev/outloud/libraries/vue-modals/commits/a2c3b9c1bb3dc87b48fb12a141d35b8fcb26630d))
+
 ## [1.0.17](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.16...vue-modals@1.0.17) (2023-04-17)
 
 
