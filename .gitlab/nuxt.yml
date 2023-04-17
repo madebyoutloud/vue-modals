@@ -11,7 +11,7 @@ publish_nuxt:
   resource_group: publish_nuxt
   before_script:
     - corepack enable
-    - corepack prepare pnpm@7 --activate
+    - corepack prepare pnpm@7.13.2 --activate
     - pnpm config set store-dir .pnpm-store
   script:
     - cd packages/nuxt
