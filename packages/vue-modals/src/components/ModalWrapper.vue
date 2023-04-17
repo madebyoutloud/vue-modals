@@ -54,6 +54,10 @@ const onClickOutside = () => {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+
+  .o-modal-loader {
+    margin: auto;
+  }
 }
 
 .o-modal-enter-active,
