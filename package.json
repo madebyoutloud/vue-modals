@@ -15,7 +15,7 @@
     "prepare:nuxt": "pnpm --filter @outloud/nuxt-modals dev:prepare && pnpm --filter @outloud/nuxt-modals prepack",
     "postinstall": "pnpm build:library && pnpm prepare:nuxt"
   },
-  "packageManager": "pnpm@7.13.2",
+  "packageManager": "pnpm@8.2.0",
   "dependencies": {
     "vue": "^3.2.47"
   },

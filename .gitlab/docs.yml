@@ -14,7 +14,7 @@ build_docs:
   image: node:18-alpine
   before_script:
     - corepack enable
-    - corepack prepare pnpm@7.13.2 --activate
+    - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
     - apk add --no-cache zip
   script:
