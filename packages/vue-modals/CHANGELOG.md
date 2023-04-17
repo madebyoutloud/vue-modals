@@ -1,5 +1,12 @@
 
 
+## [1.0.17](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.16...vue-modals@1.0.17) (2023-04-17)
+
+
+### Bug Fixes
+
+* locfile ([4831c80](https://git.outloud.dev/outloud/libraries/vue-modals/commits/4831c801d132fb07dd9016fcfd82087efbec5e44))
+
 ## [1.0.16](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.15...vue-modals@1.0.16) (2023-04-17)
 
 
