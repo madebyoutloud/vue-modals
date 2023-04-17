@@ -36,7 +36,7 @@ const onClickOutside = () => {
         v-on="modal.listeners"
       />
       <div v-else-if="slots.loading" key="loading" class="o-modal-loader">
-        <slot name="loader" />
+        <slot name="loading" />
       </div>
     </transition>
   </div>

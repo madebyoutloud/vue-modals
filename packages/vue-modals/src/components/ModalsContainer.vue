@@ -27,8 +27,8 @@ onKeyStroke('Escape', onEsc)
     <transition-group v-if="modals.list.length" tag="div" class="o-modals" appear name="o-modal">
       <template v-for="(modal, i) in modals.list" :key="modal.id">
         <ModalWrapper :modal="modal" :active="i === modals.list.length - 1" @close="modals.close(modal, $event)">
-          <template #loader>
-            <slot name="loader" />
+          <template #loading>
+            <slot name="loading" />
           </template>
         </ModalWrapper>
       </template>
