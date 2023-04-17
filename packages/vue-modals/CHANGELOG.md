@@ -1,5 +1,12 @@
 
 
+## [1.0.16](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.15...vue-modals@1.0.16) (2023-04-17)
+
+
+### Bug Fixes
+
+* lock file ([3e105a0](https://git.outloud.dev/outloud/libraries/vue-modals/commits/3e105a07c48e6f95a36f96ef3c505ea68b56750c))
+
 ## [1.0.15](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.14...vue-modals@1.0.15) (2023-04-17)
 
 ## [1.0.14](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.13...vue-modals@1.0.14) (2023-04-17)
