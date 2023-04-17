@@ -1,5 +1,7 @@
 
 
+## [1.0.19](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.18...vue-modals@1.0.19) (2023-04-17)
+
 ## [1.0.18](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.17...vue-modals@1.0.18) (2023-04-17)
 
 
