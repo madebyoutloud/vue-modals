@@ -1,5 +1,12 @@
 
 
+## [1.0.13](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.12...vue-modals@1.0.13) (2023-04-17)
+
+
+### Bug Fixes
+
+* slot names ([5146a58](https://git.outloud.dev/outloud/libraries/vue-modals/commits/5146a58be445ca82ac8e3e418e9c686e2c9fff9a))
+
 ## [1.0.12](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.11...vue-modals@1.0.12) (2023-03-03)
 
 
