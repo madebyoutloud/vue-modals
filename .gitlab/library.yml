@@ -11,11 +11,12 @@ publish_library:
   resource_group: publish_library
   before_script:
     - corepack enable
-    - corepack prepare pnpm@8.2.0 --activate
+    - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
   script:
     - cd packages/vue-modals
-    - pnpm i --loglevel error
+    - pnpm -v
+    - pnpm i --loglevel error --no-frozen-lockfile
     - pnpm run --reporter=silent build
     - echo "@outloud:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc

@@ -14,12 +14,12 @@ build_docs:
   image: node:18-alpine
   before_script:
     - corepack enable
-    - corepack prepare pnpm@8.2.0 --activate
+    - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
     - apk add --no-cache zip
   script:
     - cd docs
-    - pnpm i --loglevel error
+    - pnpm i --loglevel error --no-frozen-lockfile
     - pnpm run generate
     - cd .output/public
     - zip -r $ARTIFACT_NAME ./*
