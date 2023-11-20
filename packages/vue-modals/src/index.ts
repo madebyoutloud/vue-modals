@@ -9,8 +9,8 @@ export * from './Modal'
 export { default as OModalsContainer } from './components/ModalsContainer.vue'
 
 // composables
-export { useModals } from './composables/useModals'
-export { useModal } from './composables/useModal'
+export * from './composables/useModals'
+export * from './composables/useModal'
 
 // plugin
 export { createModals } from './plugin'
