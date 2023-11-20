@@ -1,5 +1,12 @@
 
 
+## [1.0.21](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.20...vue-modals@1.0.21) (2023-11-20)
+
+
+### Features
+
+* make useModal optional ([71edc4a](https://git.outloud.dev/outloud/libraries/vue-modals/commits/71edc4ad8392de43ef8627ae6ba94ee995948f82))
+
 ## [1.0.20](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.0.19...vue-modals@1.0.20) (2023-04-17)
 
 
