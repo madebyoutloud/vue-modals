@@ -1,5 +1,23 @@
 
 
+# [1.1.0](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.8...nuxt-modals@1.1.0) (2024-01-29)
+
+
+### Bug Fixes
+
+* deps ([9f166c6](https://git.outloud.dev/outloud/libraries/vue-modals/commits/9f166c673ca875756d3114ada43e057fdc36cb88))
+* locfile ([4831c80](https://git.outloud.dev/outloud/libraries/vue-modals/commits/4831c801d132fb07dd9016fcfd82087efbec5e44))
+* lock file ([3e105a0](https://git.outloud.dev/outloud/libraries/vue-modals/commits/3e105a07c48e6f95a36f96ef3c505ea68b56750c))
+* pnpm version ([a2c3b9c](https://git.outloud.dev/outloud/libraries/vue-modals/commits/a2c3b9c1bb3dc87b48fb12a141d35b8fcb26630d))
+* slot names ([5146a58](https://git.outloud.dev/outloud/libraries/vue-modals/commits/5146a58be445ca82ac8e3e418e9c686e2c9fff9a))
+* types ([7239a5d](https://git.outloud.dev/outloud/libraries/vue-modals/commits/7239a5d533e83d684451fb7b6c29626bf2b8cda0))
+
+
+### Features
+
+* add loader css ([cd00f8a](https://git.outloud.dev/outloud/libraries/vue-modals/commits/cd00f8a393d0a12c17f9e49f65a40a99ac62f5db))
+* make useModal optional ([71edc4a](https://git.outloud.dev/outloud/libraries/vue-modals/commits/71edc4ad8392de43ef8627ae6ba94ee995948f82))
+
 ## [1.0.8](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.7...nuxt-modals@1.0.8) (2023-03-11)
 
 ## [1.0.7](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.6...nuxt-modals@1.0.7) (2023-03-03)
