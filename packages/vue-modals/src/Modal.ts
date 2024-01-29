@@ -19,7 +19,7 @@ export type ModalData = ModalOptions & {
   listeners: ModalListeners
 }
 
-export default class Modal<T = any> {
+export class Modal<T = any> {
   readonly id: ModalId
   readonly props: ModalProps
   readonly listeners: ModalListeners
@@ -28,7 +28,7 @@ export default class Modal<T = any> {
   status: ModalStatus = 'pending'
   isReady = ref(false)
   component?: DefineComponent
-  promise?: Promise<T>
+  promise?: Promise<T | undefined>
   reject?: (err: Error) => void
   resolve?: (value: T) => void
 
@@ -39,5 +39,3 @@ export default class Modal<T = any> {
     this.options = options
   }
 }
-
-export { Modal }

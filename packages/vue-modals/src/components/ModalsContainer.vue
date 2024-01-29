@@ -1,11 +1,42 @@
 <script lang="ts" setup>
+import { computed, nextTick, ref, watch } from 'vue'
 import { onKeyStroke } from '@vueuse/core'
 import { useModals } from '../composables/useModals'
-import ModalWrapper from './ModalWrapper.vue'
+import type { Modal } from '../Modal'
+import ModalWrapper from './Modal.vue'
+
+const slots = defineSlots<{
+  loader?(_: ({ loading: boolean })): any
+}>()
 
 const modals = useModals()
+const isVisible = ref(false)
+const list = computed(() => modals.list.filter(modal => modal.isReady.value))
+const activeModal = computed(() => modals.list.at(-1))
+const isLoading = computed(() => activeModal.value?.isReady.value === false)
 
-const onEsc = (e: KeyboardEvent) => {
+const hasModals = computed(() => modals.list.length > 0)
+// const
+
+onKeyStroke('Escape', onEscape)
+
+watch(hasModals, updateVisibility)
+
+function updateVisibility(value: boolean) {
+  const content = modals.getContent()
+
+  if (content) {
+    content.inert = value
+  }
+
+  nextTick(() => (isVisible.value = value))
+}
+
+function close(modal: Modal, resolveValue?: any) {
+  modals.close(modal, resolveValue)
+}
+
+function onEscape(e: KeyboardEvent) {
   const el = e.target as HTMLElement
   const isInput = ['INPUT', 'TEXTAREA'].includes(el.tagName) || el.isContentEditable
 
@@ -18,23 +49,25 @@ const onEsc = (e: KeyboardEvent) => {
     modals.close(current)
   }
 }
-
-onKeyStroke('Escape', onEsc)
 </script>
 
 <template>
   <transition>
-    <transition-group v-if="modals.list.length" tag="div" class="o-modals" appear name="o-modal">
-      <template v-for="(modal, i) in modals.list" :key="modal.id">
-        <ModalWrapper :modal="modal" :active="i === modals.list.length - 1" @close="modals.close(modal, $event)">
-          <template #loading>
-            <slot name="loading" />
-          </template>
-        </ModalWrapper>
-      </template>
+    <div v-if="isVisible" class="o-modals">
+      <transition-group appear>
+        <ModalWrapper
+          v-for="modal in list"
+          :key="modal.id"
+          :modal="modal"
+          :active="modal === activeModal"
+          @close="close"
+        />
+      </transition-group>
 
-      <div key="bg" class="o-modals-bg" />
-    </transition-group>
+      <div key="bg" class="o-modals-bg">
+        <slot name="loader" :loading="isLoading" />
+      </div>
+    </div>
   </transition>
 </template>
 
@@ -47,7 +80,7 @@ onKeyStroke('Escape', onEsc)
   width: 100%;
   height: 100%;
   z-index: 1000;
-  transition: z-index var(--o-transition-duration), opacity var(--o-transition-duration);
+  transition: z-index var(--o-transition-duration);
 
   .o-modals-bg {
     position: absolute;
@@ -67,10 +100,6 @@ onKeyStroke('Escape', onEsc)
     .o-modals-bg {
       opacity: 0;
     }
-  }
-
-  &.v-leave-to {
-    opacity: 0;
   }
 }
 </style>

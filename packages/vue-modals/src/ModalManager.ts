@@ -1,23 +1,25 @@
-import type { Raw } from 'vue'
-import { markRaw, reactive } from 'vue'
-import Modal from './Modal'
+import type { Component, Raw, Ref } from 'vue'
+import { markRaw, reactive, ref } from 'vue'
+import { Modal } from './Modal'
 import type { ModalData, ModalId, ModalProps } from './Modal'
 import type { ModalsConfig } from './config'
+import type { ComponentImport, ModalConfirmProps } from './types'
 
-export type ModalsOpenOptions = Partial<ModalData> & {
+export type ModalOpenOptions = Partial<ModalData> & {
   fetchData?: () => Promise<ModalProps | void>
 }
 
-export interface ModalsConfirmProps {}
-
-type ModalsComponentImport = () => any
-
-export default class Modals {
+export class ModalManager {
   private modalId = 1
   public list = reactive<Raw<Modal>[]>([])
-  private components: Record<string, ModalsComponentImport> = {}
+  private components: Record<string, () => Component> = {}
+  private content: Ref<HTMLElement | undefined> = ref()
 
   constructor(public options: ModalsConfig) {}
+
+  getContent() {
+    return this.content.value
+  }
 
   public getComponent(name: string) {
     if (!this.components[name]) {
@@ -27,11 +29,15 @@ export default class Modals {
     return this.components[name]()
   }
 
-  public setComponent(name: string, component: ModalsComponentImport) {
+  public setComponent(name: string, component: ComponentImport) {
     this.components[name] = component
   }
 
-  private load(modal: Modal, component: any, options: ModalsOpenOptions) {
+  setContent(el: Ref<HTMLElement | undefined>) {
+    this.content = el
+  }
+
+  private load(modal: Modal, component: any, options: ModalOpenOptions) {
     const promises: Promise<any>[] = []
 
     if (component instanceof Promise) {
@@ -73,26 +79,28 @@ export default class Modals {
     return this.list.find(item => item.id === id)
   }
 
-  getIsOpen(modalOrId: ModalId | Modal) {
+  isOpen(modalOrId: ModalId | Modal) {
     return this.list.some(item => item.id === modalOrId || item === modalOrId)
   }
 
-  open<T = any>(component: any, options: ModalsOpenOptions = {}) {
+  open<T = any>(component: Component, options: ModalOpenOptions = {}) {
     const mergedOptions = Object.assign({
       id: this.modalId++,
       props: {},
       listeners: {},
     }, this.options, options)
 
-    if (this.getIsOpen(mergedOptions.id)) {
-      return
+    const existingModal: Modal<T> | undefined = this.get(mergedOptions.id)
+
+    if (existingModal) {
+      return existingModal.promise
     }
 
     const modal = new Modal<T>(mergedOptions)
 
     this.load(modal, component, options)
 
-    const promise = new Promise<T>((resolve, reject) => {
+    const promise = new Promise<T | undefined>((resolve, reject) => {
       modal.resolve = resolve
       modal.reject = reject
     })
@@ -127,16 +135,14 @@ export default class Modals {
     return true
   }
 
-  confirm<T = boolean>(props: ModalsConfirmProps) {
+  confirm<T = boolean>(props: ModalConfirmProps) {
     return this.open<T>(this.getComponent('confirm'), {
       props,
     })
   }
 
   extend(name: string, def: any) {
-    const prototype: any = Modals.prototype
+    const prototype: any = ModalManager.prototype
     prototype[name] = def
   }
 }
-
-export { Modals }

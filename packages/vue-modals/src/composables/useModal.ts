@@ -1,10 +1,12 @@
-import { computed, inject } from 'vue'
+import type { Ref } from 'vue'
+import { computed, inject, reactive } from 'vue'
 import { modalSymbol } from '../symbols'
+import type { Modal } from '../Modal'
 import { useModals } from './useModals'
 
 export function useModal<T = unknown>() {
   const modals = useModals()
-  const modal = inject(modalSymbol, null)
+  const modal = inject<Ref<Modal<T>> | null>(modalSymbol, null)
 
   function close(resolveValue?: T) {
     if (!modal) {
@@ -15,7 +17,12 @@ export function useModal<T = unknown>() {
   }
 
   return {
-    modal: computed(() => modal?.value ?? null),
+    modal: computed(() => modal ? modal.value : null),
+    isModal: computed(() => !!modal),
     close,
   }
+}
+
+export function $useModal<T = unknown>() {
+  return reactive(useModal<T>())
 }

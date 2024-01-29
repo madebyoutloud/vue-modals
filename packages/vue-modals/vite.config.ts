@@ -1,12 +1,10 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import VueMacros from 'unplugin-vue-macros/vite'
-import DefineOptions from 'unplugin-vue-define-options/vite'
-import dts from 'vite-plugin-dts'
 import packageJson from './package.json'
 
 const name = 'index'
+const external = ['vue', '@vueuse/core', 'body-scroll-lock']
 
 export default defineConfig({
   resolve: {
@@ -15,16 +13,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: Vue(),
-      },
-    }),
-    DefineOptions(),
-    dts({
-      tsConfigFilePath: 'tsconfig.dts.json',
-      skipDiagnostics: true,
-    }),
+    Vue(),
   ],
   publicDir: false,
   build: {
@@ -34,19 +23,12 @@ export default defineConfig({
       fileName: format => `${name}.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
     rollupOptions: {
-      external: [
-        'vue',
-        '@vueuse/core',
-        '@vueuse/integrations/useFocusTrap',
-        'focus-trap',
-      ],
+      external,
       output: {
         exports: 'auto',
         globals: {
           'vue': 'Vue',
           '@vueuse/core': 'VueUse',
-          '@vueuse/integrations/useFocusTrap': 'VueUseFocusTrap',
-          'focus-trap': 'FocusTrap',
         },
       },
     },

@@ -4,9 +4,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "types": [
-      "vite/client",
-      "vitest",
-      "unplugin-vue-define-options/macros-global",
+      "vite/client"
     ],
     "paths": {
       "~/*": [
@@ -17,16 +15,7 @@
       ]
     }
   },
-  "vueCompilerOptions": {
-    "plugins": [
-      "@vue-macros/volar/define-model",
-      "@vue-macros/volar/short-vmodel",
-      "@vue-macros/volar/define-slots"
-    ],
-    "shortVmodel": {
-      "prefix": "$"
-    }
-  },
+  "include": ["src"],
   "exclude": [
     "dist",
     "node_modules"
