@@ -15,7 +15,7 @@ export * from './composables/useModal'
 // plugin
 export { createModals } from './plugin'
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface ComponentCustomProperties {
     /**
      * Vue Modal global state for the modal components and also provides

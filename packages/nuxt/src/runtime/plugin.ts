@@ -17,12 +17,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 declare module '#app' {
   interface NuxtApp {
-    $modals: import('@outloud/vue-modals').Modals
+    $modals: import('@outloud/vue-modals').ModalManager
   }
 }
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   interface ComponentCustomProperties {
-    $modals: import('@outloud/vue-modals').Modals
+    $modals: import('@outloud/vue-modals').ModalManager
   }
 }

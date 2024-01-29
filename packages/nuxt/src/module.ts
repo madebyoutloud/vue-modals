@@ -35,7 +35,7 @@ export default defineNuxtModule({
 
     nuxt.options.css.unshift('@outloud/vue-modals/style.css')
 
-    const composables = ['useModals', 'useModal']
+    const composables = ['useModals', 'useModal', '$useModal']
     composables.map(name => addImports({
       name,
       from: '@outloud/vue-modals',
