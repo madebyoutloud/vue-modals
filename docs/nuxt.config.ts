@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
-  extends: '@nuxt-themes/docus',
+  extends: ['@outloud/docs'],
   modules: ['@outloud/nuxt-modals'],
   alias: {
     '@outloud/vue-modals/style.css': fileURLToPath(new URL('../packages/vue-modals/dist/style.css', import.meta.url)),
