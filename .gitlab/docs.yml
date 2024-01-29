@@ -18,9 +18,9 @@ build_docs:
     - pnpm config set store-dir .pnpm-store
     - apk add --no-cache zip
   script:
-    - cd docs
     - pnpm i --loglevel error --no-frozen-lockfile
-    - pnpm run generate
+    - cd docs
+    - pnpm generate
     - cd .output/public
     - zip -r $ARTIFACT_NAME ./*
     - mv $ARTIFACT_NAME ../../../
