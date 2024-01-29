@@ -9,11 +9,11 @@
     "preview": "nuxi preview"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "^1.9.1",
-    "nuxt": "^3.2.3",
+    "@nuxt-themes/docus": "^1.15.0",
+    "nuxt": "^3.9.3",
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "@outloud/nuxt-modals": "workspace:^1.0.5"
+    "@outloud/nuxt-modals": "workspace:*"
   }
 }

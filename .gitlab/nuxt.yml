@@ -16,6 +16,7 @@ publish_nuxt:
   script:
     - cd packages/nuxt
     - pnpm i --loglevel error --no-frozen-lockfile
+    - pnpm dev:prepare
     - echo "@outloud:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - pnpm publish
