@@ -12,7 +12,8 @@
     "release:library": "pnpm --filter @outloud/vue-modals release",
     "lint": "eslint . --ext=.ts,.vue --fix",
     "typecheck": "pnpm --parallel typecheck",
-    "prepare:nuxt": "pnpm --filter @outloud/nuxt-modals dev:prepare && pnpm --filter @outloud/nuxt-modals prepack"
+    "prepare:nuxt": "pnpm --filter @outloud/nuxt-modals dev:prepare && pnpm --filter @outloud/nuxt-modals prepack",
+    "postinstall": "pnpm build:library && pnpm prepare:nuxt"
   },
   "packageManager": "pnpm@8.3.1",
   "devDependencies": {
