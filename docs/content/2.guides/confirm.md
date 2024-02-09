@@ -50,9 +50,9 @@ If you need to pass different options to confirm modal component, you can do it 
 
 ```ts
 declare module '@outloud/vue-modals' {
-  interface ModalsConfirmProps {
+  interface ModalConfirmProps {
     title: string
-    text: string
+    text?: string
     handler: () => Promise<void>
   }
 }

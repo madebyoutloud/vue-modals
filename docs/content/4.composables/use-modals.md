@@ -1,6 +1,6 @@
 # useModals
 
-Composable that returns [Modals API](/api/modals).
+Composable that returns [ModalManager](/api/modal-manager).
 
 ## Usage
 ```ts

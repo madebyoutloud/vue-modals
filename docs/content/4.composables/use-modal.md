@@ -18,8 +18,10 @@ Closes current modal.
 ## Type Declarations
 
 ```ts
-export declare const useModal: <T = unknown>() => {
-    close: (resolveValue?: T | undefined) => void;
+export declare function useModal<T = unknown>(): {
+  modal: import("vue").ComputedRef<Modal<T> | null>;
+  isModal: import("vue").ComputedRef<boolean>;
+  close: (resolveValue?: T) => boolean | undefined;
 };
 ```
 
