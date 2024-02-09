@@ -1,12 +1,14 @@
 import { addImports, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { name } from '../package.json'
 
 export default defineNuxtModule({
   meta: {
-    name: '@outloud/nuxt-modals',
+    name,
     configKey: 'modals',
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+    const packageName = '@outloud/vue-modals'
 
     // Transpile runtime
     nuxt.options.build.transpile.push(resolver.resolve('./runtime'))
@@ -14,10 +16,10 @@ export default defineNuxtModule({
     // https://github.com/nuxt/framework/pull/8544
     nuxt.options.vite.optimizeDeps = nuxt.options.vite.optimizeDeps || {}
     nuxt.options.vite.optimizeDeps.include = nuxt.options.vite.optimizeDeps.include || []
-    nuxt.options.vite.optimizeDeps.include.push('@outloud/vue-modals')
+    nuxt.options.vite.optimizeDeps.include.push(packageName)
 
     nuxt.hook('prepare:types', ({ references }) => {
-      references.push({ types: '@outloud/nuxt-modals' })
+      references.push({ types: name })
     })
 
     addTemplate({
@@ -33,12 +35,12 @@ export default defineNuxtModule({
       addPlugin(resolver.resolve('./runtime/plugin'))
     })
 
-    nuxt.options.css.push('@outloud/vue-modals/style.css')
+    nuxt.options.css.push(`${packageName}/style.css`)
 
     const composables = ['useModals', 'useModal', '$useModal']
     composables.map(name => addImports({
       name,
-      from: '@outloud/vue-modals',
+      from: packageName,
     }))
   },
 })

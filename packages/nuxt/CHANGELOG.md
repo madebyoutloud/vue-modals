@@ -1,5 +1,13 @@
 
 
+## [1.1.1](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.1.0...nuxt-modals@1.1.1) (2024-02-09)
+
+
+### Bug Fixes
+
+* css inject ([fc5decd](https://git.outloud.dev/outloud/libraries/vue-modals/commits/fc5decd6f7278eba040e3aecaa17ceb17248dac3))
+* npmrc ([8b98dcf](https://git.outloud.dev/outloud/libraries/vue-modals/commits/8b98dcf800c9c90846f4d75b092f6b14ae0b12f0))
+
 # [1.1.0](https://git.outloud.dev/outloud/libraries/vue-modals/compare/nuxt-modals@1.0.8...nuxt-modals@1.1.0) (2024-01-29)
 
 
