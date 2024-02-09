@@ -33,7 +33,7 @@ export default defineNuxtModule({
       addPlugin(resolver.resolve('./runtime/plugin'))
     })
 
-    nuxt.options.css.unshift('@outloud/vue-modals/style.css')
+    nuxt.options.css.push('@outloud/vue-modals/style.css')
 
     const composables = ['useModals', 'useModal', '$useModal']
     composables.map(name => addImports({
