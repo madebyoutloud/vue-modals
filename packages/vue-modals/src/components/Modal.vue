@@ -20,6 +20,7 @@ provide(modalSymbol, toRef(() => props.modal))
 onMounted(() => {
   disableBodyScroll($el.value!, {
     reserveScrollBarGap: true,
+    allowTouchMove: (el) => $el.value?.contains(el) ?? false,
   })
 })
 
