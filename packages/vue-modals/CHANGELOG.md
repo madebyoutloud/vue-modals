@@ -1,5 +1,15 @@
 
 
+## [1.1.2](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.1.1...vue-modals@1.1.2) (2024-03-08)
+
+
+### Bug Fixes
+
+* css inject ([fc5decd](https://git.outloud.dev/outloud/libraries/vue-modals/commits/fc5decd6f7278eba040e3aecaa17ceb17248dac3))
+* deps ([9f166c6](https://git.outloud.dev/outloud/libraries/vue-modals/commits/9f166c673ca875756d3114ada43e057fdc36cb88))
+* npmrc ([8b98dcf](https://git.outloud.dev/outloud/libraries/vue-modals/commits/8b98dcf800c9c90846f4d75b092f6b14ae0b12f0))
+* scroll ([e782adf](https://git.outloud.dev/outloud/libraries/vue-modals/commits/e782adf5bce9ac5dfac12a73b976abb115655236))
+
 ## [1.1.1](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.1.0...vue-modals@1.1.1) (2024-01-29)
 
 
