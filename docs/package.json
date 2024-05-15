@@ -1,21 +1,14 @@
 {
   "name": "docs",
-  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate",
-    "preview": "nuxi preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "^1.15.0",
-    "nuxt": "3.8.2",
-    "vite-svg-loader": "^4.0.0"
-  },
-  "dependencies": {
-    "@outloud/docs": "^0.2.0",
-    "@outloud/nuxt-modals": "workspace:^"
+    "vitepress": "^1.1.4"
   }
 }

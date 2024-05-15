@@ -121,7 +121,7 @@ export class ModalManager {
     const existingModal: Modal<T> | undefined = this.get(mergedOptions.id)
 
     if (existingModal) {
-      return existingModal.promise
+      return existingModal.promise!
     }
 
     const modal = new Modal<T>(mergedOptions)

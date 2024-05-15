@@ -4,7 +4,7 @@
     class="o-modal"
     role="dialog"
     aria-modal="true"
-    :class="{ 'is--active': active }"
+    :class="{ 'is--fullscreen': modal.options.fullscreen, 'is--active': active }"
     @click.self="onClickOutside"
   >
     <component

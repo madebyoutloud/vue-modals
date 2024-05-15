@@ -11,6 +11,7 @@ export type ModalListeners = Record<string, ModalListener>
 export interface ModalOptions {
   clickToClose?: boolean
   escToClose?: boolean
+  fullscreen?: boolean
 }
 
 export interface ModalData<Props = ModalProps> extends ModalOptions {

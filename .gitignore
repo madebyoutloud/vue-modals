@@ -2,9 +2,13 @@
 .vite-ssg-dist
 .vite-ssg-temp
 *.local
+
 dist
 dist-ssr
+cache
+
 node_modules
+
 .idea/
 *.log
 .vscode
