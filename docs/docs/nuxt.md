@@ -22,7 +22,7 @@ bun add {{$nuxtJson.name}}
 
 ### 1. Register Nuxt module
 
-See [Configuration](/configuration) for options.
+See [Configuration](/docs/configuration) for options.
 
 ::: code-group
 ```ts [nuxt.config.ts]
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
 The best place is to add it to your `app.vue` file or layout in layouts folder.
 
 ::: tip
-It is also strongly recommended to set `content` element, which will become disabled when modal is displayed, see [Modals Container](/components/modals-container) for more information.
+It is also strongly recommended to set `content` element, which will become disabled when modal is displayed, see [Modals Container](/docs/components/modals-container) for more information.
 :::
 
 ::: code-group

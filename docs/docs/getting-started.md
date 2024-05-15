@@ -1,7 +1,7 @@
 # Getting Started
 Get started with Vue Modals quickly by following steps below.
 
-If you are using Nuxt, you can skip this page and go to [Nuxt](/nuxt) tutorial.
+If you are using Nuxt, you can skip this page and go to [Nuxt](/docs/nuxt) tutorial.
 
 
 ## Installation
@@ -25,7 +25,7 @@ bun add {{$packageJson.name}}
 
 ### 1. Register the plugin to your app in your entry file.
 
-See [Configuration](/configuration) for options.
+See [Configuration](/docs/configuration) for options.
 
 ::: code-group
 ```ts [main.ts]
@@ -54,7 +54,7 @@ import '@outloud/vue-modals/style.css' // [!code highlight]
 The best place is to add it to your main `App.vue` file.
 
 ::: tip
-It is also strongly recommended to set `content` element, which will become disabled when modal is displayed, see [Modals Container](/components/modals-container) for more information.
+It is also strongly recommended to set `content` element, which will become disabled when modal is displayed, see [Modals Container](/docs/components/modals-container) for more information.
 :::
 
 ::: code-group

@@ -16,7 +16,7 @@ build:docs:
     - corepack enable
     - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
-    - apk add --no-cache zip
+    - apk add --no-cache zip git
   script:
     - cd docs
     - pnpm i

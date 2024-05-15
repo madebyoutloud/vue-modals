@@ -82,11 +82,11 @@ export default defineConfig({
             text: 'Promises',
             link: '/docs/guide/promises',
           },
-{
+          {
             text: 'Extending API',
             link: '/docs/guide/extend',
           },
-{
+          {
             text: 'Styling',
             link: '/docs/guide/styling',
           },
