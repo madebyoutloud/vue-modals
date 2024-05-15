@@ -1,26 +1,37 @@
 {
   "name": "@outloud/nuxt-modals",
+  "description": "Modal library for Vue 3.",
+  "author": "Outloud (https://outloud.co)",
+  "contributors": ["Andrej Adamcik"],
   "private": false,
   "version": "1.1.1",
   "license": "MIT",
   "type": "module",
+  "keywords": [
+    "modal",
+    "modals",
+    "vue",
+    "popup",
+    "nuxt"
+  ],
+  "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/types.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "types": "./dist/types.d.ts"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepack": "nuxt-module-build",
     "release": "pnpm prepack && release-it"
   },
   "dependencies": {

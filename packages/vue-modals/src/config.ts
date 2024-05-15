@@ -1,4 +1,4 @@
-export type ModalsConfig = {
+export interface ModalsConfig {
   clickToClose: boolean
   escToClose: boolean
 }

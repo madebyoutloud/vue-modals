@@ -1,4 +1,4 @@
-import { createModals } from '@outloud/vue-modals'
+import { createModals, type ModalManager } from '@outloud/vue-modals'
 import { defineNuxtPlugin } from '#app'
 // @ts-expect-error this file will be created by module
 import { modalsOptions } from '#build/modals-options'
@@ -17,12 +17,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 declare module '#app' {
   interface NuxtApp {
-    $modals: import('@outloud/vue-modals').ModalManager
+    $modals: ModalManager
   }
 }
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $modals: import('@outloud/vue-modals').ModalManager
+    $modals: ModalManager
   }
 }

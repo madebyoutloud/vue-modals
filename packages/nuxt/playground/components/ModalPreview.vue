@@ -1,17 +1,17 @@
+<template>
+  <button type="button" @click="openModal">
+    Open Modal
+  </button>
+</template>
+
 <script setup lang="ts">
 const modals = useModals()
 
-const openModal = () => {
+async function openModal() {
   modals.open(import('./Modal.vue'), {
     props: {
-      title: 'Hello World',
+      blah: true,
     },
   })
 }
 </script>
-
-<template>
-  <button @click="openModal">
-    Open Modal
-  </button>
-</template>

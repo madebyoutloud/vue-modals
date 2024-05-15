@@ -1,6 +1,25 @@
+<template>
+  <div
+    ref="$el"
+    class="o-modal"
+    role="dialog"
+    aria-modal="true"
+    :class="{ 'is--active': active }"
+    @click.self="onClickOutside"
+  >
+    <component
+      :is="modal.component"
+      :active="active"
+      v-bind="modal.props"
+      v-on="modal.listeners"
+    />
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted, provide, ref, toRef } from 'vue'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { lock, unlock } from 'tua-body-scroll-lock'
+
 import type { Modal } from '../Modal'
 import { modalSymbol } from '../symbols'
 
@@ -10,7 +29,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'close', modal: Modal, resolveValue?: unknown): void
+  close: [modal: Modal, resolveValue?: unknown]
 }>()
 
 const $el = ref<HTMLElement>()
@@ -18,14 +37,15 @@ const $el = ref<HTMLElement>()
 provide(modalSymbol, toRef(() => props.modal))
 
 onMounted(() => {
-  disableBodyScroll($el.value!, {
-    reserveScrollBarGap: true,
-    allowTouchMove: (el) => $el.value?.contains(el) ?? false,
+  lock($el.value!, {
+    useGlobalLockState: true,
   })
 })
 
 onBeforeUnmount(() => {
-  enableBodyScroll($el.value!)
+  unlock($el.value!, {
+    useGlobalLockState: true,
+  })
 })
 
 function onClickOutside() {
@@ -34,17 +54,6 @@ function onClickOutside() {
   }
 }
 </script>
-
-<template>
-  <div ref="$el" class="o-modal" role="dialog" aria-modal="true" :class="{ 'is--active': active }" @click.self="onClickOutside">
-    <component
-      :is="modal.component"
-      :active="active"
-      v-bind="modal.props"
-      v-on="modal.listeners"
-    />
-  </div>
-</template>
 
 <style lang="scss">
 .o-modal {

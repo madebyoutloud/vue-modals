@@ -1,9 +1,3 @@
-<script setup lang="ts">
-defineProps<{
-  title?: string
-}>()
-</script>
-
 <template>
   <div class="modal">
     <h1>{{ title }}</h1>
@@ -11,6 +5,12 @@ defineProps<{
     <input type="text" placeholder="text">
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  title?: string
+}>()
+</script>
 
 <style lang="scss" scoped>
 .modal {

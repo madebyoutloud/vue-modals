@@ -1,4 +1,4 @@
-import type { DefineComponent } from 'vue'
+import type { Component } from 'vue'
 import { ref } from 'vue'
 
 export type ModalListener = (...args: any[]) => void
@@ -8,14 +8,14 @@ export type ModalStatus = 'pending' | 'open' | 'closed'
 export type ModalProps = Record<string, any>
 export type ModalListeners = Record<string, ModalListener>
 
-export type ModalOptions = {
+export interface ModalOptions {
   clickToClose?: boolean
   escToClose?: boolean
 }
 
-export type ModalData = ModalOptions & {
+export interface ModalData<Props = ModalProps> extends ModalOptions {
   id: ModalId
-  props: ModalProps
+  props: Props
   listeners: ModalListeners
 }
 
@@ -27,7 +27,7 @@ export class Modal<T = any> {
 
   status: ModalStatus = 'pending'
   isReady = ref(false)
-  component?: DefineComponent
+  component?: Component
   promise?: Promise<T | undefined>
   reject?: (err: Error) => void
   resolve?: (value: T) => void

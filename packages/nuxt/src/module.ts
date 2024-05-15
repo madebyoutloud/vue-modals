@@ -14,8 +14,8 @@ export default defineNuxtModule({
     nuxt.options.build.transpile.push(resolver.resolve('./runtime'))
 
     // https://github.com/nuxt/framework/pull/8544
-    nuxt.options.vite.optimizeDeps = nuxt.options.vite.optimizeDeps || {}
-    nuxt.options.vite.optimizeDeps.include = nuxt.options.vite.optimizeDeps.include || []
+    nuxt.options.vite.optimizeDeps ||= {}
+    nuxt.options.vite.optimizeDeps.include ||= []
     nuxt.options.vite.optimizeDeps.include.push(packageName)
 
     nuxt.hook('prepare:types', ({ references }) => {
@@ -38,8 +38,8 @@ export default defineNuxtModule({
     nuxt.options.css.push(`${packageName}/style.css`)
 
     const composables = ['useModals', 'useModal', '$useModal']
-    composables.map(name => addImports({
-      name,
+    composables.map((composable) => addImports({
+      name: composable,
       from: packageName,
     }))
   },

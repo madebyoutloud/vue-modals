@@ -5,18 +5,20 @@ workflow:
 stages:
   - publish
 
-publish_nuxt:
+publish:nuxt:
   stage: publish
-  image: node:18-alpine
-  resource_group: publish_nuxt
+  image: node:20-alpine
+  resource_group: nuxt
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
   script:
     - cd packages/nuxt
-    - pnpm i --loglevel error --no-frozen-lockfile
+    - pnpm i --loglevel=error --no-frozen-lockfile
     - pnpm dev:prepare
+
     - echo "@outloud:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+
     - pnpm publish

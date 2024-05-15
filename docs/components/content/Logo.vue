@@ -3,7 +3,7 @@ import Logo from '~/assets/svgs/logo.svg'
 </script>
 
 <template>
-  <Logo class="logo" />
+  <img src="~/assets/logo.png" class="logo" />
 </template>
 
 <style lang="scss" scoped>

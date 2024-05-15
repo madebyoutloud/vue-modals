@@ -9,9 +9,9 @@ stages:
   - build
   - deploy
 
-build_docs:
+build:docs:
   stage: build
-  image: node:18-alpine
+  image: node:20-alpine
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest --activate
@@ -28,11 +28,11 @@ build_docs:
     paths:
       - $ARTIFACT_NAME
 
-deploy_docs:
+deploy:docs:
   stage: deploy
   dependencies:
-    - build_docs
-  resource_group: deploy_docs
+    - build:docs
+  resource_group: docs
   before_script:
     - apk add --no-cache aws-cli
   script:

@@ -1,40 +1,65 @@
 import type { Component, Raw, Ref } from 'vue'
-import { markRaw, reactive, ref } from 'vue'
+import { markRaw, reactive } from 'vue'
 import { Modal } from './Modal'
 import type { ModalData, ModalId, ModalProps } from './Modal'
 import type { ModalsConfig } from './config'
-import type { ComponentImport, ModalConfirmProps } from './types'
+import type { ComponentOrImport, ComponentProps, LazyComponent, ModalConfirmProps } from './types'
 
-export type ModalOpenOptions = Partial<ModalData> & {
-  fetchData?: () => Promise<ModalProps | void>
+export type ModalOpenOptions<Props = ModalProps> = Partial<ModalData<Props>> & {
+  fetchData?: () => Promise<ModalProps | undefined>
+}
+
+interface ComponentData {
+  loader: LazyComponent
+  component?: Component
 }
 
 export class ModalManager {
+  list = reactive<Raw<Modal>[]>([])
+  content?: Ref<HTMLElement | undefined>
+
   private modalId = 1
-  public list = reactive<Raw<Modal>[]>([])
-  private components: Record<string, () => Component> = {}
-  private content: Ref<HTMLElement | undefined> = ref()
+  private components = new Map<string, ComponentData>()
 
   constructor(public options: ModalsConfig) {}
 
-  getContent() {
-    return this.content.value
-  }
+  getComponent(name: string): ComponentOrImport {
+    const component = this.components.get(name)
 
-  public getComponent(name: string) {
-    if (!this.components[name]) {
+    if (!component) {
       throw new Error(`Component "${name}" not found`)
     }
 
-    return this.components[name]()
+    if (component.component) {
+      return component.component
+    }
+
+    const result = component.loader()
+
+    if (result instanceof Promise) {
+      return result.then((resolved) => {
+        component.component = resolved.default ?? resolved
+        return resolved
+      })
+    } else {
+      component.component = result
+
+      return result
+    }
   }
 
-  public setComponent(name: string, component: ComponentImport) {
-    this.components[name] = component
-  }
+  registerComponent(name: string, loader: LazyComponent, preload = false) {
+    this.components.set(name, { loader })
 
-  setContent(el: Ref<HTMLElement | undefined>) {
-    this.content = el
+    if (preload) {
+      const result = this.getComponent(name)
+
+      if (result instanceof Promise) {
+        result.catch((err) => {
+          console.error(`Failed to preload component "${name}": ${err.message}`)
+        })
+      }
+    }
   }
 
   private load(modal: Modal, component: any, options: ModalOpenOptions) {
@@ -46,14 +71,14 @@ export class ModalManager {
           modal.component = resolved.default ?? resolved
         }),
       )
-    }
-    else {
+    } else {
       modal.component = component
     }
 
     if (options.fetchData) {
       promises.push(
-        options.fetchData().then(result => result && Object.assign(modal.props, result)),
+        options.fetchData()
+          .then((result) => result && Object.assign(modal.props, result)),
       )
     }
 
@@ -76,14 +101,17 @@ export class ModalManager {
   }
 
   get(id: ModalId) {
-    return this.list.find(item => item.id === id)
+    return this.list.find((item) => item.id === id)
   }
 
   isOpen(modalOrId: ModalId | Modal) {
-    return this.list.some(item => item.id === modalOrId || item === modalOrId)
+    return this.list.some((item) => item.id === modalOrId || item === modalOrId)
   }
 
-  open<T = any>(component: Component, options: ModalOpenOptions = {}) {
+  open<T = any, C extends Component = Component>(
+    component: ComponentOrImport<C>,
+    options: ModalOpenOptions<ComponentProps<C>> = {},
+  ) {
     const mergedOptions = Object.assign({
       id: this.modalId++,
       props: {},
@@ -120,8 +148,7 @@ export class ModalManager {
 
     if (resolveValue instanceof Error) {
       modal.reject && modal.reject(resolveValue)
-    }
-    else {
+    } else {
       modal.resolve && modal.resolve(resolveValue)
     }
 

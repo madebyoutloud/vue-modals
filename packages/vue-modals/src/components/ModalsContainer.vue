@@ -1,17 +1,37 @@
+<template>
+  <transition>
+    <div v-if="isVisible" class="o-modals">
+      <transition-group appear>
+        <ModalWrapper
+          v-for="modal in list"
+          :key="modal.id"
+          :modal="modal"
+          :active="modal === activeModal"
+          @close="close"
+        />
+      </transition-group>
+
+      <div key="bg" class="o-modals-bg">
+        <slot name="loader" :loading="isLoading"></slot>
+      </div>
+    </div>
+  </transition>
+</template>
+
 <script lang="ts" setup>
 import { computed, nextTick, ref, watch } from 'vue'
 import { onKeyStroke } from '@vueuse/core'
-import { useModals } from '../composables/useModals'
+import { useModals } from '../composables/modals'
 import type { Modal } from '../Modal'
 import ModalWrapper from './Modal.vue'
 
-const slots = defineSlots<{
+defineSlots<{
   loader?(_: ({ loading: boolean })): any
 }>()
 
 const modals = useModals()
 const isVisible = ref(false)
-const list = computed(() => modals.list.filter(modal => modal.isReady.value))
+const list = computed(() => modals.list.filter((modal) => modal.isReady.value))
 const activeModal = computed(() => modals.list.at(-1))
 const isLoading = computed(() => activeModal.value?.isReady.value === false)
 
@@ -23,7 +43,7 @@ onKeyStroke('Escape', onEscape)
 watch(hasModals, updateVisibility)
 
 function updateVisibility(value: boolean) {
-  const content = modals.getContent()
+  const content = modals.content?.value
 
   if (content) {
     content.inert = value
@@ -50,26 +70,6 @@ function onEscape(e: KeyboardEvent) {
   }
 }
 </script>
-
-<template>
-  <transition>
-    <div v-if="isVisible" class="o-modals">
-      <transition-group appear>
-        <ModalWrapper
-          v-for="modal in list"
-          :key="modal.id"
-          :modal="modal"
-          :active="modal === activeModal"
-          @close="close"
-        />
-      </transition-group>
-
-      <div key="bg" class="o-modals-bg">
-        <slot name="loader" :loading="isLoading" />
-      </div>
-    </div>
-  </transition>
-</template>
 
 <style lang="scss">
 .o-modals {

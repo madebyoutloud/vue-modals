@@ -1,16 +1,16 @@
 import type { ModalManager } from './ModalManager'
 
 export type { ModalsConfig } from './config'
+export type { ModalConfirmProps } from './types'
 export * from './ModalManager'
 export * from './Modal'
-export type { ModalConfirmProps } from './types'
 
 // components
 export { default as OModalsContainer } from './components/ModalsContainer.vue'
 
 // composables
-export * from './composables/useModals'
-export * from './composables/useModal'
+export * from './composables/modals'
+export * from './composables/modal'
 
 // plugin
 export { createModals } from './plugin'
