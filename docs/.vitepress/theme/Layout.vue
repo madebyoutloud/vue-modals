@@ -1,7 +1,7 @@
 <template>
   <DefaultTheme.Layout>
     <template #home-hero-image>
-      <img src="/images/hero@2x.png" alt="hero" >
+      <img src="/images/hero@2x.png" alt="hero" width="880" height="636">
     </template>
   </DefaultTheme.Layout>
 </template>
