@@ -25,6 +25,27 @@ export default defineConfig({
         type: 'image/svg+xml',
       },
     ],
+    [
+      'meta',
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+    ],
+    [
+      'meta',
+      {
+        property: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    ],
+    [
+      'meta',
+      {
+        property: 'twitter:image',
+        content: '/images/social.png',
+      },
+    ],
   ],
   themeConfig: {
     logo: '/logo.svg',

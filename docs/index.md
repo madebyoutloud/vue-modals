@@ -10,13 +10,13 @@ hero:
       link: /docs/getting-started
 
 features:
-  - icon: 🪶
+  - icon: 🚀
     title: Lightweight
     details: Only 3.3 kB gzipped.
   - icon: ✅
     title: Full TypeScript support
     details: Fully typed, even props you pass to your modals.
-  - icon: 🧩
+  - icon: 🛠️
     title: Customizable
     details: Library can be easily extended for custom functionality or styles.
   - icon:
