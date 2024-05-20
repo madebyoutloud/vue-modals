@@ -1,0 +1,13 @@
+import { createApp } from 'vue';
+import { createModals } from '@outloud/vue-modals';
+import App from './App.vue';
+import { plugin } from './plugin';
+
+import '@outloud/vue-modals/style.css';
+import './styles.css';
+
+const app = createApp(App)
+
+app.use(createModals({}))
+app.use(plugin)
+app.mount('#app')

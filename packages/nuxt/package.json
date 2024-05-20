@@ -1,6 +1,6 @@
 {
   "name": "@outloud/nuxt-modals",
-  "description": "Modal library for Vue 3.",
+  "description": "The smart modal library for Vue.js",
   "author": "Outloud (https://outloud.co)",
   "contributors": ["Andrej Adamcik"],
   "private": false,

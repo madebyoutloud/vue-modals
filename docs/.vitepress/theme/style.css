@@ -3,3 +3,7 @@
   --vp-c-brand-2: #d63e2b;
   --vp-c-brand-3: #be3726;
 }
+
+.sp-wrapper {
+  margin-top: 16px;
+}

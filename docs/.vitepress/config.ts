@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import container from 'markdown-it-container'
+import { renderSandbox } from 'vitepress-plugin-sandpack'
 import packageJson from '../../packages/vue-modals/package.json'
 
 // https://vitepress.dev/reference/site-config
@@ -9,6 +11,14 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
+
+  markdown: {
+    config(md) {
+      md.use(container, 'sandbox', {
+        render: (tokens, idx) => renderSandbox(tokens, idx, 'sandbox'),
+      })
+    },
+  },
 
   head: [
     [
@@ -98,10 +108,6 @@ export default defineConfig({
           {
             text: 'Examples',
             link: '/docs/guide/examples',
-          },
-          {
-            text: 'Promises',
-            link: '/docs/guide/promises',
           },
           {
             text: 'Extending API',

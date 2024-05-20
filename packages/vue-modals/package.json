@@ -1,7 +1,7 @@
 {
   "name": "@outloud/vue-modals",
   "title": "Vue Modals",
-  "description": "Modal library for Vue 3",
+  "description": "The smart modal library for Vue.js",
   "author": "Outloud (https://outloud.co)",
   "contributors": ["Andrej Adamcik"],
   "private": false,
@@ -44,6 +44,13 @@
     "prepack": "pnpm build",
     "release": "release-it"
   },
+  "dependencies": {
+    "@vueuse/core": ">=9",
+    "tua-body-scroll-lock": "^1.5.0"
+  },
+  "peerDependencies": {
+    "vue": "^3"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "@vueuse/core": "^10",
@@ -54,10 +61,5 @@
     "vitest": "^1.6.0",
     "vue": "^3.4",
     "vue-tsc": "^2.0.17"
-  },
-  "peerDependencies": {
-    "@vueuse/core": ">=9",
-    "tua-body-scroll-lock": "^1.5.0",
-    "vue": "^3"
   }
 }
