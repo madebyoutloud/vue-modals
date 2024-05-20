@@ -14,8 +14,8 @@ publish:library:
     - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
   script:
-    - pnpm i --loglevel=error --no-frozen-lockfile
     - cd packages/vue-modals
+    - pnpm i --loglevel=error --no-frozen-lockfile
 
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
     - pnpm publish --access public
