@@ -1,5 +1,7 @@
 
 
+## [2.0.1](https://github.com/madebyoutloud/vue-modals/compare/v2.0.0...v2.0.1) (2024-05-20)
+
 # [2.0.0](https://github.com/madebyoutloud/vue-modals/compare/vue-modals@1.1.2...v2.0.0) (2024-05-20)
 
 ## [1.1.2](https://git.outloud.dev/outloud/libraries/vue-modals/compare/vue-modals@1.1.1...vue-modals@1.1.2) (2024-03-08)
