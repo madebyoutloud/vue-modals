@@ -1,22 +1,15 @@
 {
-  "gitlab": {
+  "github": {
     "release": true,
-    "releaseName": "nuxt-modals ${version}"
+    "releaseName": "Nuxt ${version}"
   },
   "git": {
-    "tagName": "nuxt-modals@${version}",
-    "commitMessage": "nuxt-modals@${version}",
-    "tagAnnotation": "nuxt-modals@${version}",
+    "tagName": "nuxt${version}",
+    "commitMessage": "Nuxt ${version}",
+    "tagAnnotation": "Nuxt ${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {
     "publish": false
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "ignoreRecommendedBump": true
-    }
   }
 }

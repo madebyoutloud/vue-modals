@@ -1,12 +1,9 @@
 {
-  "gitlab": {
-    "release": true,
-    "releaseName": "vue-modals ${version}"
+  "github": {
+    "release": true
   },
   "git": {
-    "tagName": "vue-modals@${version}",
-    "commitMessage": "vue-modals@${version}",
-    "tagAnnotation": "vue-modals@${version}",
+    "tagName": "v${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {
