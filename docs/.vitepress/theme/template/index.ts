@@ -54,7 +54,7 @@ export const template = {
           preview: 'vite preview',
         },
         dependencies: {
-          '@outloud/vue-modals': '^2.0.0',
+          '@outloud/vue-modals': '^2.0.1',
           'vue': '^3.4',
           '@vueuse/core': '^10.9.0',
           'tua-body-scroll-lock': '^1.5.0',

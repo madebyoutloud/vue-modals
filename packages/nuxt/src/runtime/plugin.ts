@@ -5,7 +5,6 @@ import { modalsOptions } from '#build/modals-options'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const modals = createModals(modalsOptions)
-
   nuxtApp.vueApp.use(modals)
 
   return {

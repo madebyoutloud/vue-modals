@@ -2,7 +2,9 @@
   "name": "@outloud/nuxt-modals",
   "description": "The smart modal library for Vue.js",
   "author": "Outloud (https://outloud.co)",
-  "contributors": ["Andrej Adamcik"],
+  "contributors": [
+    "Andrej Adamcik"
+  ],
   "private": false,
   "version": "1.1.1",
   "license": "MIT",
@@ -39,7 +41,8 @@
     "release": "pnpm prepack && release-it"
   },
   "dependencies": {
-    "@nuxt/kit": "3.8.2"
+    "@nuxt/kit": "3.8.2",
+    "@outloud/vue-modals": "^2.0.1"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.5.5",
