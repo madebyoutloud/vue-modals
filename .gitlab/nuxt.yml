@@ -17,6 +17,8 @@ publish:nuxt:
     - pnpm i --loglevel=error --no-frozen-lockfile
     - cd packages/nuxt
 
+    - pnpm dev:prepare
+
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
     - pnpm publish --access public
 
