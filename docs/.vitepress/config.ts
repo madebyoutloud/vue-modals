@@ -1,7 +1,36 @@
-import { defineConfig } from 'vitepress'
+import { type HeadConfig, defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
 import { renderSandbox } from 'vitepress-plugin-sandpack'
 import packageJson from '../../packages/vue-modals/package.json'
+
+const webUrl = process.env.WEB_URL ?? ''
+
+const meta = [
+  {
+    name: 'robots',
+    content: 'index, follow',
+  },
+  {
+    itemprop: 'image',
+    content: 'website',
+  },
+  {
+    property: 'og:type',
+    content: 'website',
+  },
+  {
+    property: 'og:image',
+    content: webUrl + '/images/social.png',
+  },
+  {
+    property: 'twitter:card',
+    content: 'summary_large_image',
+  },
+  {
+    property: 'twitter:image',
+    content: webUrl + '/images/social.png',
+  },
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -35,28 +64,9 @@ export default defineConfig({
         type: 'image/svg+xml',
       },
     ],
-    [
-      'meta',
-      {
-        property: 'og:type',
-        content: 'website',
-      },
-    ],
-    [
-      'meta',
-      {
-        property: 'twitter:card',
-        content: 'summary_large_image',
-      },
-    ],
-    [
-      'meta',
-      {
-        property: 'twitter:image',
-        content: '/images/social.png',
-      },
-    ],
+    ...meta.map((item) => ['meta', item] as HeadConfig),
   ],
+
   themeConfig: {
     logo: '/logo.svg',
 
