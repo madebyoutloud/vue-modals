@@ -2,7 +2,7 @@
 
 ## Show modal
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div>
@@ -31,7 +31,7 @@ function open() {
 ## Wait to close
 When opening a modal, a promise will be returned, which can be awaited until the modal is closed.
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div class="flex items-center gap-4">
@@ -66,7 +66,7 @@ async function open() {
 ## Return payload
 You can return any payload when closing a modal. If you close modal by clicking on background or pressing Esc an `undefined` value will be returned.
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div class="flex items-center gap-4">
@@ -123,7 +123,7 @@ async function save() {
 ## Using listeners
 When opening a modals you can provide listeners that will be called when components emits an event.
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div class="flex items-center gap-4">
@@ -179,7 +179,7 @@ function update() {
 ## Fetching data
 Sometimes you might need to load extra data before displaying the modal. There is an option for that.
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div>
@@ -216,7 +216,7 @@ function open() {
 ## Confirm
 Modals are often used when displaying confirm action. There is a utility method that makes it easier.
 
-::: sandbox {rtl template=vite-vue-ts}
+::: sandbox {rtl template=vite-vue-ts autorun=false}
 ```vue src/Preview.vue [active]
 <template>
   <div>

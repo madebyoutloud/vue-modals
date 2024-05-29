@@ -1,13 +1,18 @@
 <template>
   <DefaultTheme.Layout>
     <template #home-hero-image>
-      <img src="/images/hero@2x.png" alt="hero" width="880" height="636">
+      <VPImage
+        :image="{ light: '/images/hero-light@2x.png', dark: '/images/hero@2x.png' }"
+        alt="hero"
+        width="866"
+        height="566"
+      />
     </template>
   </DefaultTheme.Layout>
 </template>
 
 <script setup>
-import DefaultTheme from 'vitepress/theme'
+import DefaultTheme, { VPImage } from 'vitepress/theme'
 </script>
 
 <style scoped>
