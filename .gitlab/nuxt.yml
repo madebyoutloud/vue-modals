@@ -14,9 +14,9 @@ publish:nuxt:
     - corepack prepare pnpm@latest --activate
     - pnpm config set store-dir .pnpm-store
   script:
-    - pnpm i --loglevel=error --no-frozen-lockfile
+    - pnpm i
+    - pnpm --filter @outloud/vue-modals build
     - cd packages/nuxt
-
     - pnpm dev:prepare
 
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
