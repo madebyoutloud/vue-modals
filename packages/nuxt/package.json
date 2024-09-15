@@ -34,19 +34,20 @@
     "dist"
   ],
   "scripts": {
+    "build": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "prepack": "nuxt-module-build",
-    "release": "pnpm prepack && release-it"
+    "prepack": "pnpm build",
+    "release": "pnpm build && release-it"
   },
   "dependencies": {
-    "@nuxt/kit": "^3",
+    "@nuxt/kit": "^3.13.1",
     "@outloud/vue-modals": "^2.0.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.5.5",
-    "@nuxt/schema": "3.8.2",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "3.13.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@release-it/conventional-changelog": "^5.1.1",
     "nuxt": "^3.13.1",

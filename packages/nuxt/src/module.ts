@@ -1,11 +1,13 @@
 import { addImports, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import type { ModalsConfig } from '@outloud/vue-modals'
 import { name } from '../package.json'
 
-export default defineNuxtModule({
+export default defineNuxtModule<Partial<ModalsConfig>>({
   meta: {
     name,
     configKey: 'modals',
   },
+  defaults: {},
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
     const packageName = '@outloud/vue-modals'
