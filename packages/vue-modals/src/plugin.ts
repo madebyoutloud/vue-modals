@@ -2,11 +2,10 @@ import type { App } from 'vue'
 import { markRaw, warn } from 'vue'
 import { ModalManager } from './ModalManager'
 import type { ModalsConfig } from './config'
-import { config } from './config'
 import { modalsSymbol } from './symbols'
 
 export function createModals(options: Partial<ModalsConfig> = {}) {
-  const api = markRaw(new ModalManager(Object.assign({}, config, options)))
+  const api = markRaw(new ModalManager(options))
 
   const install = (app: App) => {
     if (app.config.globalProperties.$modals) {

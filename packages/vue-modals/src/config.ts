@@ -11,7 +11,7 @@ export interface ModalsConfig {
   escToClose: boolean
 }
 
-export const config: ModalsConfig = {
+export const defaults: ModalsConfig = {
   clickToClose: true,
   escToClose: true,
 }

@@ -1,30 +1,41 @@
-import type { Component, Raw, Ref } from 'vue'
-import { markRaw, reactive } from 'vue'
+import type { Component, Ref } from 'vue'
+import { markRaw } from 'vue'
 import { Modal } from './Modal'
-import type { ModalData, ModalId, ModalProps } from './Modal'
+import type { ModalData, ModalId, ModalProps, ModalScope } from './Modal'
 import type { ModalsConfig } from './config'
 import type { ComponentOrImport, ComponentProps, LazyComponent, ModalConfirmProps } from './types'
+import { State } from './State'
 
 export type ModalOpenOptions<Props = ModalProps> = Partial<ModalData<Props>> & {
   fetchData?: () => Promise<ModalProps | undefined>
 }
 
-interface ComponentData {
-  loader: LazyComponent
-  component?: Component
-}
-
 export class ModalManager {
-  list = reactive<Raw<Modal>[]>([])
-  content?: Ref<HTMLElement | undefined>
+  private readonly state: State
+  private scopeId?: ModalScope
 
-  private modalId = 1
-  private components = new Map<string, ComponentData>()
+  constructor(options?: Partial<ModalsConfig>, state?: State) {
+    this.state = state || new State(options)
+  }
 
-  constructor(public options: ModalsConfig) {}
+  get list() {
+    return this.state.list
+  }
+
+  get options() {
+    return this.state.options
+  }
+
+  get content() {
+    return this.state.content
+  }
+
+  set content(value: Ref<HTMLElement | undefined> | undefined) {
+    this.state.content = value
+  }
 
   getComponent(name: string): ComponentOrImport {
-    const component = this.components.get(name)
+    const component = this.state.components.get(name)
 
     if (!component) {
       throw new Error(`Component "${name}" not found`)
@@ -49,7 +60,7 @@ export class ModalManager {
   }
 
   registerComponent(name: string, loader: LazyComponent, preload = false) {
-    this.components.set(name, { loader })
+    this.state.components.set(name, { loader })
 
     if (preload) {
       const result = this.getComponent(name)
@@ -112,10 +123,11 @@ export class ModalManager {
     component: ComponentOrImport<C>,
     options: ModalOpenOptions<ComponentProps<C>> = {},
   ) {
-    const mergedOptions = Object.assign({
-      id: this.modalId++,
+    const mergedOptions: ModalData = Object.assign({
+      id: this.state.modalId++,
       props: {},
       listeners: {},
+      scope: this.scopeId,
     }, this.options, options)
 
     const existingModal: Modal<T> | undefined = this.get(mergedOptions.id)
@@ -162,6 +174,24 @@ export class ModalManager {
     return true
   }
 
+  closeScope() {
+    if (!this.scopeId) {
+      return
+    }
+
+    for (const modal of this.list) {
+      if (modal.scope === this.scopeId) {
+        this.close(modal)
+      }
+    }
+  }
+
+  closeAll() {
+    for (const modal of this.list) {
+      this.close(modal)
+    }
+  }
+
   confirm<T = boolean>(props: ModalConfirmProps) {
     return this.open<T>(this.getComponent('confirm'), {
       props,
@@ -171,5 +201,12 @@ export class ModalManager {
   extend(name: string, def: any) {
     const prototype: any = ModalManager.prototype
     prototype[name] = def
+  }
+
+  scope(scopeId: ModalScope) {
+    const scope = new ModalManager(undefined, this.state)
+    scope.scopeId = scopeId
+
+    return scope
   }
 }
